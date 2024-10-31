@@ -16,11 +16,11 @@ import com.teachmeskills.lesson_9.task1.transfer.impl.VisaCardTransferService;
 import java.util.Scanner;
 
 public class ApplicationRunner {
-    public static void main(java.lang.String[] args) {
+    public static void main(String[] args) {
         // TODO запросить с консоли путь и имя файла
         System.out.print("Enter the path to the file: ");
         Scanner scanner = new Scanner(System.in);
-        java.lang.String filePath =  scanner.nextLine();
+        String filePath =  scanner.nextLine();
 
         // TODO сделать метод createParser статичным и избавиться от необходимости создания объекта parserFabric
         // TODO заменить "" на имя файла, полученное со сканера
@@ -42,15 +42,13 @@ public class ApplicationRunner {
         // перевести с карты одного клиента на карту другого сумму денег
         MasterCardTransferService masterCardTransfer1 = new MasterCardTransferService();
         masterCardClient1.showBaseInfo();
-        Check check1 = masterCardTransfer1.transferFromCardToCard(masterCardClient1, masterCardClient2, 700);
-        check1.showCheckInfo();
+        masterCardTransfer1.transferFromCardToCard(masterCardClient1, masterCardClient2, 1000).showCheckInfo();
         masterCardClient1.showBaseInfo();
 
         // перевести с карты одного клиента на счет, другого клиента сумму денег
         VisaCardTransferService visaCardTransferS1 = new VisaCardTransferService();
         visaCardClient2.showBaseInfo();
-        Check check2 = visaCardTransferS1.transferFromCardToAccount(visaCardClient2, accountClient1, 100);
-        check2.showCheckInfo();
+        visaCardTransferS1.transferFromCardToAccount(visaCardClient2, accountClient1, 500).showCheckInfo();
         visaCardClient2.showBaseInfo();
     }
 }

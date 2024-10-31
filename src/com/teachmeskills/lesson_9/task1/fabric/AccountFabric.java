@@ -10,7 +10,7 @@ public class AccountFabric {
             case 2 -> new Account("A01-B02-876-234", 2500);
             case 3 -> new Account("111-222-546-999", 5000);
             case 4 -> new Account("222-234-543-655", 10000);
-            default -> null; //обработать
+            default ->  throw new IllegalArgumentException("Not found ."); //обработать
         };
     }
 

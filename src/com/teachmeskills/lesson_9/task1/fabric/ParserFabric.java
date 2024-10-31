@@ -9,12 +9,17 @@ public class ParserFabric {
 
     public static IParser createParser(String fileName){
         // TODO (опционально) * попробовать переписать на конструкцию switch-case, может это будет более ёмкая запись
-         if (fileName.endsWith(".docx")) {
+        if (fileName.isEmpty() || fileName == null ){
+            throw new IllegalArgumentException("File is null or is empty.");
+        }
+        if (fileName.endsWith(".docx")) {
              return new DocXDocumentParser();
          } else if (fileName.endsWith(".pdf")) {
              return new PdfDocumentParser();
-         } else  {
+         } else if(fileName.endsWith(".txt")) {
              return new TxtDocumentParser();
+         }else {
+             throw new UnsupportedOperationException("Unsupported file: " + fileName);
          }
     }
 }
