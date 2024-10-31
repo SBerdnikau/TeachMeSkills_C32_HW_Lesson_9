@@ -14,8 +14,27 @@ public abstract class BaseClient {
         this.cards = cards;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Account[] getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(Account[] accounts) {
+        this.accounts = accounts;
+    }
+
     public BaseCard[] getCards() {
         return cards;
     }
 
+    public void setCards(BaseCard[] cards) {
+        this.cards = cards;
+    }
 }

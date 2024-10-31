@@ -34,19 +34,39 @@ public class Check {
         return transferAmount;
     }
 
+    public void setTransferAmount(int transferAmount) {
+        this.transferAmount = transferAmount;
+    }
+
     public Date getTransferDate() {
         return transferDate;
+    }
+
+    public void setTransferDate(Date transferDate) {
+        this.transferDate = transferDate;
     }
 
     public String getFromNumberCard() {
         return fromNumberCard;
     }
 
+    public void setFromNumberCard(String fromNumberCard) {
+        this.fromNumberCard = fromNumberCard;
+    }
+
     public String getToNumberCard() {
         return toNumberCard;
     }
 
+    public void setToNumberCard(String toNumberCard) {
+        this.toNumberCard = toNumberCard;
+    }
+
     public String getComment() {
         return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }

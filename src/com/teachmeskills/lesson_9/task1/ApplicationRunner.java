@@ -9,7 +9,6 @@ import com.teachmeskills.lesson_9.task1.model.card.BaseCard;
 import com.teachmeskills.lesson_9.task1.model.card.MasterCard;
 import com.teachmeskills.lesson_9.task1.model.card.VisaCard;
 import com.teachmeskills.lesson_9.task1.model.client.BaseClient;
-import com.teachmeskills.lesson_9.task1.model.document.Check;
 import com.teachmeskills.lesson_9.task1.transfer.impl.MasterCardTransferService;
 import com.teachmeskills.lesson_9.task1.transfer.impl.VisaCardTransferService;
 

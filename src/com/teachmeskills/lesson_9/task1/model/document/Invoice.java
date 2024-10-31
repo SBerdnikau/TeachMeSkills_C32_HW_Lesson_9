@@ -1,43 +1,38 @@
 package com.teachmeskills.lesson_9.task1.model.document;
 
-import com.teachmeskills.lesson_9.task1.model.account.Account;
-import com.teachmeskills.lesson_9.task1.model.client.BaseClient;
-
-import java.util.Date;
-
 // TODO добавить поля на свое усмотрение
 public class Invoice {
-    private Account[] accountNumber;
-    private BaseClient[] clients;
-    private Date currentDate;
+    private int invoiceDate;
+    private double invoiceAmount;
+    private String sender;
 
-    public Invoice(Account[] accountNumber, BaseClient[] clients, Date currentDate) {
-        this.accountNumber = accountNumber;
-        this.clients = clients;
-        this.currentDate = currentDate;
+    public Invoice(int invoiceDate, double invoiceAmount, String sender) {
+        this.invoiceDate = invoiceDate;
+        this.invoiceAmount = invoiceAmount;
+        this.sender = sender;
     }
 
-    public Account[] getAccountNumber() {
-        return accountNumber;
+    public int getInvoiceDate() {
+        return invoiceDate;
     }
 
-    public void setAccountNumber(Account[] accountNumber) {
-        this.accountNumber = accountNumber;
+    public void setInvoiceDate(int invoiceDate) {
+        this.invoiceDate = invoiceDate;
     }
 
-    public BaseClient[] getClients() {
-        return clients;
+    public double getInvoiceAmount() {
+        return invoiceAmount;
     }
 
-    public void setClients(BaseClient[] clients) {
-        this.clients = clients;
+    public void setInvoiceAmount(double invoiceAmount) {
+        this.invoiceAmount = invoiceAmount;
     }
 
-    public Date getCurrentDate() {
-        return currentDate;
+    public String getSender() {
+        return sender;
     }
 
-    public void setCurrentDate(Date currentDate) {
-        this.currentDate = currentDate;
+    public void setSender(String sender) {
+        this.sender = sender;
     }
 }

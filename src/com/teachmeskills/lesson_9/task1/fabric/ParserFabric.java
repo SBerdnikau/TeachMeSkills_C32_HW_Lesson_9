@@ -9,7 +9,7 @@ public class ParserFabric {
 
     public static IParser createParser(String fileName){
         // TODO (опционально) * попробовать переписать на конструкцию switch-case, может это будет более ёмкая запись
-        if (fileName.isEmpty() || fileName == null ){
+        if (fileName.isEmpty()){
             throw new IllegalArgumentException("File is null or is empty.");
         }
         if (fileName.endsWith(".docx")) {

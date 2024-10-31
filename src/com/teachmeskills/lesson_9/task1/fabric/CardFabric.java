@@ -14,7 +14,7 @@ public class CardFabric {
              case 2 -> new VisaCard("002-345-222-221", 122, new Date(), "SERGEY", "USD", 1, 3000  );
              case 3 -> new MasterCard( "222-432-222-111", 222, new Date(), "KATE", "BYN", "BLR", 7500);
              case 4 -> new VisaCard(  "222-432-000-399", 876, new Date(), "KATE", "USD", 2, 12000 );
-             default -> null; //Написать обработку
+             default ->  throw new IllegalArgumentException("Not found value of card ");
         };
     }
 

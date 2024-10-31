@@ -18,7 +18,7 @@ public class ClientFabric {
                     new Account[]{ AccountFabric.createByCodeAccount(3), AccountFabric.createByCodeAccount(4) },
                     new BaseCard[]{ CardFabric.createByCodeCard(3), CardFabric.createByCodeCard(4)},
                     "L61-C12-G23-N22");
-            default -> null; // обработать исключение
+            default ->  throw new IllegalArgumentException("Not found value of client. ");
         };
     }
 

@@ -9,9 +9,9 @@ public abstract class BaseCard {
     protected Date validDate;
     protected String cardHolder;
     protected String currency;
-    protected double amount;
+    protected int amount;
 
-    public BaseCard(java.lang.String cardNumber, int cvv, Date validDate, String cardHolder, String currency, double amount) {
+    public BaseCard(java.lang.String cardNumber, int cvv, Date validDate, String cardHolder, String currency, int amount) {
         this.cardNumber = cardNumber;
         this.cvv = cvv;
         this.validDate = validDate;
@@ -29,7 +29,7 @@ public abstract class BaseCard {
      * @return  true - если сумма перевода укладывается в лимиты
      *          false - если сумма перевода больше лимита для карты
      */
-    public abstract boolean checkCardLimitTransfer(int amountForTransfer);
+    public abstract boolean checkCardLimitTransfer(double amountForTransfer);
 
     public void showBaseInfo(){
         System.out.println(cardNumber + " -> " + amount + " -> " + validDate);
@@ -83,20 +83,12 @@ public abstract class BaseCard {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(int amount) {
         this.amount = amount;
     }
 
     public void withdrawalFromCard(int amount){
-        //Реализация проверки на отрицательные значения
-        if (amount <= 0 ){
-            System.out.println("Не достаточно средств на карте");
-        }else {
             this.amount -= amount;
-        }
-
-
-
     }
 
 }

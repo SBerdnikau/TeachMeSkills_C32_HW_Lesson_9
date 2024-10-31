@@ -11,4 +11,11 @@ public class LegalClient extends BaseClient{
         this.legalClientNumber = legalClientNumber;
     }
 
+    public String getLegalClientNumber() {
+        return legalClientNumber;
+    }
+
+    public void setLegalClientNumber(String legalClientNumber) {
+        this.legalClientNumber = legalClientNumber;
+    }
 }
