@@ -13,39 +13,39 @@ public class  VisaCardTransferService implements CardTransferService {
 
     @Override
     public Check transferFromCardToCard(BaseCard cardFrom, BaseCard cardTo, int amountTransfer) {
-        if (cardFrom.getAmount() >= amountTransfer) {
-            if (amountTransfer > 0) {
-                if (cardFrom.checkCardLimitTransfer(amountTransfer)) {
+        if (amountTransfer > 0) {
+            if (cardFrom.getAmount() >= amountTransfer) {
+                if (cardFrom.checkCardLimitTransfer(amountTransfer)){
                     cardFrom.withdrawalFromCard(amountTransfer);
                     cardTo.addToCard(amountTransfer);
                     return new Check(amountTransfer, new Date(), cardFrom.getCardNumber(), cardTo.getCardNumber(), Constans.STATUS_TRANSFER_SUCCESS);
-                } else {
+                }else {
                     return new Check(amountTransfer, new Date(), cardFrom.getCardNumber(), cardTo.getCardNumber(), Constans.STATUS_TRANSFER_LIMIT + Constans.TRANSFER_LIMIT_VISA_CARD);
                 }
-            } else {
-                return new Check(amountTransfer, new Date(), cardFrom.getCardNumber(), cardTo.getCardNumber(), Constans.STATUS_TRANSFER_INCORRECT_VALUE);
+            }else {
+                return new Check(amountTransfer, new Date(), cardFrom.getCardNumber(), cardTo.getCardNumber(), Constans.STATUS_TRANSFER_INSUFFICIENT);
             }
-        } else {
-            return new Check(amountTransfer, new Date(), cardFrom.getCardNumber(), cardTo.getCardNumber(), Constans.STATUS_TRANSFER_INSUFFICIENT);
+        }else{
+            return new Check(amountTransfer, new Date(), cardFrom.getCardNumber(), cardTo.getCardNumber(), Constans.STATUS_TRANSFER_INCORRECT_VALUE);
         }
     }
 
     @Override
     public Check transferFromCardToAccount(BaseCard cardFrom, Account accountTo, int amountTransfer) {
-        if (cardFrom.getAmount() >= amountTransfer) {
-            if (amountTransfer > 0) {
+        if (amountTransfer > 0) {
+            if (cardFrom.getAmount() >= amountTransfer) {
                 if (cardFrom.checkCardLimitTransfer(amountTransfer)) {
                     cardFrom.withdrawalFromCard(amountTransfer);
                     accountTo.addToAccount(amountTransfer);
                     return new Check(amountTransfer, new Date(), cardFrom.getCardNumber(), accountTo.getAccountNumber(), Constans.STATUS_TRANSFER_SUCCESS);
-                } else {
+                }else {
                     return new Check(amountTransfer, new Date(), cardFrom.getCardNumber(), accountTo.getAccountNumber(), Constans.STATUS_TRANSFER_LIMIT + Constans.TRANSFER_LIMIT_VISA_CARD);
                 }
-            } else {
-                return new Check(amountTransfer, new Date(), cardFrom.getCardNumber(), accountTo.getAccountNumber(), Constans.STATUS_TRANSFER_INCORRECT_VALUE);
+            }else {
+                return new Check(amountTransfer, new Date(), cardFrom.getCardNumber(), accountTo.getAccountNumber(), Constans.STATUS_TRANSFER_INSUFFICIENT);
             }
-        } else {
-            return new Check(amountTransfer, new Date(), cardFrom.getCardNumber(), accountTo.getAccountNumber(), Constans.STATUS_TRANSFER_INSUFFICIENT);
+        }else {
+            return new Check(amountTransfer, new Date(), cardFrom.getCardNumber(), accountTo.getAccountNumber(), Constans.STATUS_TRANSFER_INCORRECT_VALUE);
         }
     }
 }
